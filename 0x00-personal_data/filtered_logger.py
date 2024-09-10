@@ -12,7 +12,7 @@ def filter_datum(fields: List[str], redaction: str, message: str,
                  separator: str) -> str:
     """
     Obfuscates fields in a log message.
-    
+
     Args:
         fields (List[str]): The list of fields to obfuscate.
         redaction (str): The string to replace the field values with.
@@ -50,4 +50,3 @@ class RedactingFormatter(logging.Formatter):
         original_message = super().format(record)
         return filter_datum(self.fields, self.REDACTION,
                             original_message, self.SEPARATOR)
-
